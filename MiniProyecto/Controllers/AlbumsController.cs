@@ -28,6 +28,15 @@ namespace MiniProyecto.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Album album = db.Album.Find(id);
+            ViewBag.photo = (from al in db.Album
+                          from ph in db.Photo
+                          where al.Id == ph.Album.Id && (al.Id == id)
+                            select new PhotoDTO
+                          {
+                              Id = ph.Id,
+                              Url = ph.Url                           
+
+                          }).ToList();
             if (album == null)
             {
                 return HttpNotFound();

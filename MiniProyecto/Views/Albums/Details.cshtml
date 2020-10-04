@@ -26,6 +26,17 @@
             @Html.DisplayFor(model => model.Status)
         </dd>
 
+        @foreach(var i in ViewBag.photo) 
+        { 
+        <dt>
+           PHOTO @i.Id
+        </dt>
+
+        <dd>
+            <img src="@i.Url" />
+        </dd>
+        }
+
     </dl>
 </div>
 <p>
