@@ -8,6 +8,9 @@ namespace MiniProyecto.Models
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Album> Album { get; set; }
+        public DbSet<Photo> Photo { get; set; }
+        public DbSet<Comment> Comment { get; set; }
 
         public ApplicationDbContext() : base("DefaultConnection")
         {
